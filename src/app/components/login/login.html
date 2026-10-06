@@ -1,5 +1,6 @@
 <main>
-  <form>
+      <!--AL AGREGAR EL INDEX.HTML O HOME-->
+  <form #loginForm="ngForm" (submit)="onLogin($event, loginForm)">
     <div>
       <h2>Iniciar Sesión</h2>
     </div>

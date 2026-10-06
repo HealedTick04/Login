@@ -10,6 +10,7 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('Login');
 }*/
+/*
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './components/login/login';
@@ -23,6 +24,20 @@ import { Login } from './components/login/login';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, Login],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {
+  title = 'Login';
+}*/
+//AL PONER EL INDEX.HTML O HOME
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
