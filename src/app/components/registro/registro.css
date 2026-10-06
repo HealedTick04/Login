@@ -1,0 +1,98 @@
+/* Contenedor principal centrado en pantalla */
+main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #121212;
+}
+
+/* Tarjeta de Registro */
+form {
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px 1px rgba(2, 255, 230, 0.6);
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Campos de entrada */
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+label {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+input {
+  border: none;
+  border-bottom: 2px solid greenyellow;
+  color: white;
+  padding: 8px 4px;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+  background: transparent;
+}
+
+input:focus {
+  border-bottom-color: #007bff;
+}
+
+/* Botón de registro */
+button {
+  margin-top: 10px;
+  padding: 12px;
+  background-color: #02ff85;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #067c49;
+}
+
+/* Enlace hacia el login */
+.login-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-link p {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
