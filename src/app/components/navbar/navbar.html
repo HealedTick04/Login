@@ -1,1 +1,28 @@
-<p>navbar works!</p>
+<nav class="navbar">
+  <!-- Logo o Título de la Aplicación -->
+  <div class="navbar-brand">
+    <h2>WEB</h2>
+  </div>
+
+  <!-- Enlaces de navegación centrales (opcionales por ahora) -->
+ <ul class="navbar-links">
+    <li><a (click)="scrollToSection('inicio')">Inicio</a></li>
+    <li><a (click)="scrollToSection('servicios')">Servicios</a></li>
+    <li><a (click)="scrollToSection('nosotros')">Nosotros</a></li>
+    <li><a (click)="scrollToSection('proyectos')">Proyectos</a></li>
+    <li><a (click)="scrollToSection('contacto')">Contacto</a></li>
+  </ul>
+  
+  <!-- Zona de Usuario y Menú Desplegable (Extrema Derecha) -->
+  <div class="user-menu">
+    <div class="user-info" (click)="toggleDropdown()">
+      <span>Usuario: <strong>Ángel</strong></span>
+      <i class="arrow-down">▼</i>
+    </div>
+
+    <!-- Menú Desplegable -->
+    <div class="dropdown-menu" [class.show]="isDropdownOpen">
+      <a (click)="logout()">Cerrar Sesión</a>
+    </div>
+  </div>
+</nav>
