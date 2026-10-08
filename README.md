@@ -5,7 +5,7 @@ Proyecto web desarrollado con **Angular** que implementa un flujo completo de au
 ---
 
 ## 👥 Integrantes del Equipo
-* **[Pon qui tu nombre y sube el commit para que se actualice]** - Módulo de Autenticación (Login, Registro) y estructura base del Navbar e Index.
+* **[Jose Angel Antonio Peña]** - Módulo de Autenticación (Login, Registro) y estructura base del Navbar e Index.
 * **[Fernando Rojas García]** - Módulo de Usuarios, Módulo de Alumnos (Número de control y Modal de edad), Sidebar y Utilería de validaciones.
 
 ---
