@@ -1,0 +1,109 @@
+/* Título principal */
+h1 {
+  color: #02ff85;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(2, 255, 230, 0.2);
+  letter-spacing: 0.5px;
+}
+
+/* Formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Grupos de campos (divs que envuelven label, input y error) */
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Etiquetas (Labels) */
+label {
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Entradas de texto (Inputs) */
+input {
+  background-color: #2a2a2a;
+  border: 1px solid rgba(2, 255, 230, 0.3);
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input:focus {
+  border-color: #02ff85;
+  box-shadow: 0 0 10px rgba(2, 255, 133, 0.35);
+  background-color: #2f2f2f;
+}
+
+/* Mensajes de error */
+p {
+  color: #ff5555;
+  font-size: 12px;
+  margin: 2px 0 0 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+p::before {
+  content: "⚠ ";
+  font-size: 13px;
+}
+
+/* Botón Guardar */
+button[type="submit"] {
+  background: linear-gradient(135deg, #02ff85 0%, #00cc6a 100%);
+  color: #121212;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(2, 255, 133, 0.25);
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #24ff96 0%, #02ff85 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(2, 255, 133, 0.45);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(2, 255, 133, 0.3);
+}
+
+/* Animación de error suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

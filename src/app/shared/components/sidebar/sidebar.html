@@ -1,0 +1,62 @@
+<aside class="sidebar" [class.open]="isOpen">
+
+  <div class="sidebar-header">
+    <h2>Mi Proyecto</h2>
+
+    <button
+      type="button"
+      class="close-button"
+      (click)="toggleSidebar()">
+      ×
+    </button>
+  </div>
+
+  <nav>
+
+    <a routerLink="/inicio">
+      Inicio
+    </a>
+
+    <div class="menu-section">
+
+      <button
+        type="button"
+        class="menu-button"
+        (click)="toggleUsuarios()">
+
+        Usuarios
+
+        <span>
+          {{ usuariosOpen ? '▲' : '▼' }}
+        </span>
+
+      </button>
+
+      <div
+        class="submenu"
+        *ngIf="usuariosOpen">
+
+        <a routerLink="/usuarios/captura">
+          Captura
+        </a>
+
+      </div>
+
+    </div>
+
+    <a routerLink="/alumnos">
+      Alumnos
+    </a>
+
+  </nav>
+
+</aside>
+
+<button
+  type="button"
+  class="hamburger"
+  (click)="toggleSidebar()">
+
+  ☰
+
+</button>

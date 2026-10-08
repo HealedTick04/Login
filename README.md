@@ -1,59 +1,58 @@
-# Login
+# Sistema de Gestión Escolar - Aplicación Web en Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.0.
+Proyecto web desarrollado con **Angular** que implementa un flujo completo de autenticación, gestión de usuarios, registro de alumnos con validaciones personalizadas en JavaScript nativo y un panel interactivo con barra de navegación y menú lateral.
 
-## Development server
+---
 
-To start a local development server, run:
+## 👥 Integrantes del Equipo
+* **[Pon qui tu nombre y sube el commit para que se actualice]** - Módulo de Autenticación (Login, Registro) y estructura base del Navbar e Index.
+* **[Fernando Rojas García]** - Módulo de Usuarios, Módulo de Alumnos (Número de control y Modal de edad), Sidebar y Utilería de validaciones.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Características y Funcionalidades
 
-## Code scaffolding
+### 1. Autenticación y Sesión
+* **Login y Registro**: Formulario de inicio de sesión con validación de credenciales guardadas en `localStorage`.
+* **Persistencia de sesión**: El sistema almacena la sesión activa del usuario para mantener el estado entre vistas.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 2. Barra de Navegación Superior (Navbar)
+* **Usuario dinámico**: Muestra el nombre del usuario autenticado en la esquina superior derecha.
+* **Menú desplegable (Dropdown)**: Menú interactivo al hacer clic en el nombre.
+* **Cierre de sesión seguro**: Opción "Salir del sistema" que limpia los datos de sesión y redirige a la pantalla de login.
 
-```bash
-ng generate component component-name
-```
+### 3. Menú Lateral (Sidebar)
+* Navegación interactiva tipo acordeón para acceder a los diferentes módulos sin recargar la página.
+* Enlace a la vista general de Inicio.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 4. Módulo de Usuarios (Captura)
+* Formulario reactivo con validaciones de:
+  * Nombre de usuario obligatorio.
+  * Correo electrónico validado mediante función externa en JavaScript (`validarCorreo`).
+  * Contraseña validada con mínimo de 8 caracteres (`validarPassword`).
+  * Esto no verifica si es un nombre valido o si debe de ser uno real
 
-```bash
-ng generate --help
-```
+### 5. Módulo de Alumnos (Captura)
+* Formulario para alta de estudiantes con:
+  * Nombre y apellidos obligatorios.
+  * **Número de control**: Validación estricta a exactamente 6 dígitos numéricos usando `validarNumeroControl` de JavaScript nativo.
+  * **Modal de Mayoría de Edad**: Cálculo automático de la edad a partir de la fecha de nacimiento y despliegue de una ventana modal que notifica si el estudiante es **Mayor de Edad** o **Menor de Edad**.
 
-## Building
+### 6. Librería de Validaciones (`utileria.js`)
+* Archivo JavaScript independiente ubicado en `src/assets/js/utileria.js` e integrado en `angular.json` para desacoplar las reglas de validación del framework.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+##  Tecnologías Utilizadas
+* **Angular** (Componentes Standalone, nuevo flujo de control `@if`)
+* **TypeScript**
+* **HTML5 & CSS3** (Diseño moderno en modo oscuro con acentos neón)
+* **JavaScript** nativo (Scripting de utilería)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+##  Instalación y Ejecución Local
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/HealedTick04/Login.git

@@ -1,0 +1,61 @@
+<h1>Captura de Alumno</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="guardar()">
+
+  <div>
+    <label for="nombre">Nombre</label>
+    <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre del alumno">
+    @if (formulario.get('nombre')?.touched && formulario.get('nombre')?.invalid) {
+      <p>El nombre es obligatorio.</p>
+    }
+  </div>
+
+  <div>
+    <label for="apellidos">Apellidos</label>
+    <input id="apellidos" type="text" formControlName="apellidos" placeholder="Apellidos">
+    @if (formulario.get('apellidos')?.touched && formulario.get('apellidos')?.invalid) {
+      <p>Los apellidos son obligatorios.</p>
+    }
+  </div>
+
+  <div>
+    <label for="numeroControl">Número de Control (6 dígitos)</label>
+    <input id="numeroControl" type="text" maxlength="6" formControlName="numeroControl" placeholder="Ej. 123456">
+    @if (formulario.get('numeroControl')?.touched && formulario.get('numeroControl')?.invalid) {
+      <p>Debe tener exactamente 6 dígitos numéricos.</p>
+    }
+  </div>
+
+  <div>
+    <label for="fechaNacimiento">Fecha de Nacimiento</label>
+    <input id="fechaNacimiento" type="date" formControlName="fechaNacimiento">
+    @if (formulario.get('fechaNacimiento')?.touched && formulario.get('fechaNacimiento')?.invalid) {
+      <p>Selecciona una fecha válida.</p>
+    }
+  </div>
+
+  <button type="submit">Registrar Alumno</button>
+
+</form>
+
+<!-- MODAL DE MAYORÍA DE EDAD -->
+@if (mostrarModal) {
+  <div class="modal-backdrop">
+    <div class="modal-box">
+      <h2>Verificación de Edad</h2>
+      <p class="modal-info">El alumno tiene <strong>{{ edadCalculada }} años</strong>.</p>
+
+      @if (esMayorDeEdad) {
+        <div class="badge mayor">
+          ✔ MAYOR DE EDAD
+        </div>
+      } @else {
+        <div class="badge menor">
+          ⚠ MENOR DE EDAD
+        </div>
+      }
+
+      <button type="button" class="btn-modal" (click)="cerrarModal()">Aceptar</button>
+    </div>
+  </div>
+}

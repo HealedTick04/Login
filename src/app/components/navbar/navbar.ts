@@ -1,54 +1,3 @@
-/*import { Component } from '@angular/core';
-
-@Component({
-  imports: [],
-  selector: 'app-navbar',
-  styleUrl: './navbar.css',
-  templateUrl: './navbar.html',
-})
-export class Navbar {}*/
-//CREACION DEL NAVBAR
-/*import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
-@Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [],
-  templateUrl: './navbar.html',
-  styleUrl: './navbar.css'
-})
-export class Navbar {
-  isDropdownOpen = false;
-
-  constructor(private router: Router) {}
-
-  // Muestra u oculta el menú al hacer clic sobre el usuario
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-  }
-
-  // Cierra sesión y regresa a la pantalla de Login
-  logout() {
-    this.isDropdownOpen = false;
-    this.router.navigate(['/login']);
-  }
-
-  // Desplazamiento suave hacia la sección seleccionada
-  scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-     const navbarHeight = 70; // Altura aproximada del navbar
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      
-      window.scrollTo({
-        top: elementPosition - navbarHeight,
-        behavior: 'smooth'
-      });
-    }
-  }
-}*/
-//AL CREAR EL LOGEAR AL INDEX
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -60,41 +9,44 @@ import { Router } from '@angular/router';
   styleUrl: './navbar.css'
 })
 export class Navbar implements OnInit {
-  isDropdownOpen = false;
-  userName: string = 'Invitado';
+
+  userName: string = 'Usuario';
+  isDropdownOpen: boolean = false;
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
-    // Leemos el usuario activo
-    const currentUser = localStorage.getItem('currentUser');
-    if (currentUser) {
-      const user = JSON.parse(currentUser);
-      this.userName = user.nombre;
+  ngOnInit(): void {
+    // Leemos el usuario que guardó el Login en el navegador
+    const storedUser = localStorage.getItem('currentUser');
+
+    if (storedUser) {
+      try {
+        const user = JSON.parse(storedUser);
+        // Si tiene 'nombre' lo mostramos; si no, el correo o lo que tenga
+        this.userName = user.nombre || user.email || 'Usuario';
+      } catch (e) {
+        this.userName = storedUser;
+      }
     }
   }
 
-  toggleDropdown() {
+  // Abre y cierra el menú desplegable al hacer clic
+  toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
-  logout() {
-    this.isDropdownOpen = false;
-    // Eliminamos la sesión activa al salir
+  // Cierra la sesión y regresa a la pantalla de login
+  logout(): void {
     localStorage.removeItem('currentUser');
     this.router.navigate(['/login']);
   }
 
-  scrollToSection(sectionId: string) {
+  // Para evitar errores con los enlaces de tu barra si hacen scroll
+  scrollToSection(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarHeight = 70;
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      
-      window.scrollTo({
-        top: elementPosition - navbarHeight,
-        behavior: 'smooth'
-      });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+
 }

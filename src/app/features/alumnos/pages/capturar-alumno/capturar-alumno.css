@@ -1,0 +1,139 @@
+h1 {
+  color: #02ff85;
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(2, 255, 230, 0.2);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label {
+  color: #cccccc;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+input {
+  background-color: #2a2a2a;
+  border: 1px solid rgba(2, 255, 230, 0.3);
+  border-radius: 6px;
+  padding: 12px 14px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input:focus {
+  border-color: #02ff85;
+  box-shadow: 0 0 10px rgba(2, 255, 133, 0.35);
+}
+
+p {
+  color: #ff5555;
+  font-size: 12px;
+  margin: 2px 0 0 0;
+}
+
+button[type="submit"] {
+  background: linear-gradient(135deg, #02ff85 0%, #00cc6a 100%);
+  color: #121212;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* ESTILOS DEL MODAL DE EDAD */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-box {
+  background-color: #1e1e1e;
+  border: 1px solid rgba(2, 255, 230, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  padding: 26px 30px;
+  width: 320px;
+  text-align: center;
+}
+
+.modal-box h2 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.modal-info {
+  color: #cccccc !important;
+  font-size: 15px !important;
+  margin: 15px 0 !important;
+}
+
+.modal-info strong {
+  color: #02ff85;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.badge.mayor {
+  background-color: rgba(2, 255, 133, 0.15);
+  color: #02ff85;
+  border: 1px solid #02ff85;
+}
+
+.badge.menor {
+  background-color: rgba(255, 170, 0, 0.15);
+  color: #ffaa00;
+  border: 1px solid #ffaa00;
+}
+
+.btn-modal {
+  background-color: #2a2a2a;
+  color: #ffffff;
+  border: 1px solid rgba(2, 255, 230, 0.3);
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-modal:hover {
+  background-color: #02ff85;
+  color: #121212;
+}

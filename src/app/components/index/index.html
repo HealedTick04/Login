@@ -1,28 +1,98 @@
 <app-navbar></app-navbar>
 
-<main class="index-container">
-  <section id="inicio" class="content-section">
-    <h1>Bienvenido a la Plataforma</h1>
-    <p>Esta es la sección de inicio.</p>
-  </section>
+<div class="app-layout">
+  <!-- SIDEBAR LATERAL -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h3>Menú del Sistema</h3>
+    </div>
 
-  <section id="servicios" class="content-section">
-    <h2>Nuestros Servicios</h2>
-    <p>Descripción de los servicios ofrecidos.</p>
-  </section>
+    <!-- Opción de volver al Inicio -->
+    <div class="menu-item">
+      <a class="menu-link" (click)="cambiarVista('inicio')" [class.active]="vistaActual === 'inicio'">
+        🏠 Inicio
+      </a>
+    </div>
 
-  <section id="nosotros" class="content-section">
-    <h2>Sobre Nosotros</h2>
-    <p>Información del equipo o la empresa.</p>
-  </section>
+    <!-- Menú Usuarios -->
+    <div class="menu-item">
+      <div class="menu-title" (click)="toggleMenuUsuarios()">
+        <span>👥 Usuarios</span>
+        <span class="arrow">{{ menuUsuariosAbierto ? '▲' : '▼' }}</span>
+      </div>
+      @if (menuUsuariosAbierto) {
+        <ul class="submenu">
+          <li>
+            <a (click)="cambiarVista('usuarios')" [class.active]="vistaActual === 'usuarios'">
+              ➕ Captura
+            </a>
+          </li>
+        </ul>
+      }
+    </div>
 
-  <section id="proyectos" class="content-section">
-    <h2>Proyectos</h2>
-    <p>Muestrario de características o trabajos.</p>
-  </section>
+    <!-- Menú Alumnos -->
+    <div class="menu-item">
+      <div class="menu-title" (click)="toggleMenuAlumnos()">
+        <span>🎓 Alumnos</span>
+        <span class="arrow">{{ menuAlumnosAbierto ? '▲' : '▼' }}</span>
+      </div>
+      @if (menuAlumnosAbierto) {
+        <ul class="submenu">
+          <li>
+            <a (click)="cambiarVista('alumnos')" [class.active]="vistaActual === 'alumnos'">
+              ➕ Captura
+            </a>
+          </li>
+        </ul>
+      }
+    </div>
+  </aside>
 
-  <section id="contacto" class="content-section">
-    <h2>Contacto</h2>
-    <p>Información de soporte y contacto.</p>
-  </section>
-</main>
+  <!-- CONTENIDO CENTRAL -->
+  <main class="content-container">
+    <!-- 1. VISTA INICIO (Las secciones que ya tenía tu compañero) -->
+    @if (vistaActual === 'inicio') {
+      <div class="index-sections">
+        <section id="inicio" class="content-section">
+          <h1>Bienvenido a la Plataforma</h1>
+          <p>Esta es la sección de inicio.</p>
+        </section>
+
+        <section id="servicios" class="content-section">
+          <h2>Nuestros Servicios</h2>
+          <p>Descripción de los servicios ofrecidos.</p>
+        </section>
+
+        <section id="nosotros" class="content-section">
+          <h2>Sobre Nosotros</h2>
+          <p>Información del equipo o la empresa.</p>
+        </section>
+
+        <section id="proyectos" class="content-section">
+          <h2>Proyectos</h2>
+          <p>Muestrario de características o trabajos.</p>
+        </section>
+
+        <section id="contacto" class="content-section">
+          <h2>Contacto</h2>
+          <p>Información de soporte y contacto.</p>
+        </section>
+      </div>
+    }
+
+    <!-- 2. VISTA CAPTURA DE USUARIO (Tu formulario) -->
+    @if (vistaActual === 'usuarios') {
+      <div class="form-container">
+        <app-captura-usuario></app-captura-usuario>
+      </div>
+    }
+
+    <!-- 3. VISTA CAPTURA DE ALUMNO (Pendiente de crear) -->
+    @if (vistaActual === 'alumnos') {
+      <div class="form-container">
+        <app-captura-alumno></app-captura-alumno>
+      </div>
+    }
+  </main>
+</div>
