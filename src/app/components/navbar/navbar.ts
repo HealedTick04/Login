@@ -16,16 +16,16 @@ export class Navbar implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Leemos el usuario que guardó el Login en el navegador
-    const storedUser = localStorage.getItem('currentUser');
-
-    if (storedUser) {
-      try {
-        const user = JSON.parse(storedUser);
-        // Si tiene 'nombre' lo mostramos; si no, el correo o lo que tenga
-        this.userName = user.nombre || user.email || 'Usuario';
-      } catch (e) {
-        this.userName = storedUser;
+    // Verificamos que estemos en el navegador antes de leer localStorage
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const storedUser = localStorage.getItem('currentUser');
+      if (storedUser) {
+        try {
+          const user = JSON.parse(storedUser);
+          this.userName = user.nombre || user.email || 'Usuario';
+        } catch (e) {
+          this.userName = storedUser;
+        }
       }
     }
   }
